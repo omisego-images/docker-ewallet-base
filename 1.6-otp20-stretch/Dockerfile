@@ -8,6 +8,7 @@ RUN set -xe && \
     LIBSODIUM_DOWNLOAD_SHA256="fb6a9e879a2f674592e4328c5d9f79f082405ee4bb05cb6e679b90afe9e178f4" && \
     build_deps="autoconf autogen automake build-essential libtool" && \
     apt-get update && \
+    apt-get install -y --no-install-recommends git && \
     apt-get install -y --no-install-recommends $build_deps && \
     curl -fsL -o libsodium-src.tar.gz "${LIBSODIUM_DOWNLOAD_URL}" && \
     echo "$LIBSODIUM_DOWNLOAD_SHA256  libsodium-src.tar.gz" | sha256sum -c - && \
