@@ -4,6 +4,11 @@ MAINTAINER Kridsada Thanabulpong <sirn@omise.co>
 ENV LIBSODIUM_VERSION="1.0.15"
 
 RUN set -xe && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends imagemagick && \
+    apt-get clean
+
+RUN set -xe && \
     LIBSODIUM_DOWNLOAD_URL="https://download.libsodium.org/libsodium/releases/libsodium-${LIBSODIUM_VERSION}.tar.gz" && \
     LIBSODIUM_DOWNLOAD_SHA256="fb6a9e879a2f674592e4328c5d9f79f082405ee4bb05cb6e679b90afe9e178f4" && \
     build_deps="autoconf autogen automake libtool" && \
